@@ -27,7 +27,7 @@ if users_response == "basic"
   end
 
 
-
+# advanced
 elsif users_response == "advanced"
   puts "Choose an operation. SquareRoot or Power"
   operation = gets.chomp
@@ -47,6 +47,31 @@ elsif users_response == "advanced"
 
   end
 
+#bmi 
 elsif users_response == "bmi"
+  puts "This is the BMI calculator"
+  puts "Which system do you want to use? imperial or metric?"
+  measure_system = gets.chomp
+  if measure_system == "metric"
+    puts "Enter your height in metres"
+    height = gets.chomp.to_f
+    puts "Enter your weight in kilograms"
+    weight = gets.chomp.to_f
+    height_squared = height * height
+    bmi_result = weight / height_squared
+    puts "Your BMI result is #{bmi_result}"
+  elsif measure_system == "imperial"
+    puts "Enter your height in inches"
+    height = gets.chomp.to_f
+    puts "Enter your weight in pounds"
+    weight = gets.chomp.to_f
+    inches_to_metres = height * 0.025
+    pounds_to_kilograms = weight * 0.45
+    height_squared = inches_to_metres * inches_to_metres
+    bmi_result = pounds_to_kilograms / height_squared
+    puts "Your BMI result is #{bmi_result}"
+
+  end
+
 
 end
