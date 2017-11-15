@@ -1,34 +1,10 @@
+operation = 0;
+
 puts 'Which calculator would you like to use? Basic, advanced, bmi?'
 users_response = gets.chomp
 
-if users_response == "basic"
-  puts "You have chose the basic calculator"
-  puts "Please enter the first number"
-  first_number = gets.chomp.to_i
-  puts "Please enter the second number"
-  second_number = gets.chomp.to_i
-  puts "Please choose one of the following operations: *, /, +, -"
-  operation = gets.chomp
 
-  ## basic calculator
-
-  if operation == "+"
-    sum = first_number + second_number
-    puts "The answer is #{sum}"
-  elsif operation == "-"
-    sum = first_number - second_number
-    puts "The answer is #{sum}"
-  elsif operation == "/"
-    sum = first_number/second_number
-    puts "The answer is #{sum}"
-  elsif operation == "*"
-    sum = first_number * second_number
-    puts "The answer is #{sum}"
-  end
-
-
-# advanced
-elsif users_response == "advanced"
+def advanced
   puts "Choose an operation. SquareRoot or Power"
   operation = gets.chomp
   if operation == "SquareRoot"
@@ -43,12 +19,38 @@ elsif users_response == "advanced"
     exponent = gets.chomp.to_i
     answer = base ** exponent
     puts "The answer is #{answer}"
+  end
+end
 
+def basic
+  puts "You have chose the basic calculator"
+  puts "Please enter the first number"
+  first_number = gets.chomp.to_i
+  puts "Please enter the second number"
+  second_number = gets.chomp.to_i
+  puts "Please choose one of the following operations: *, /, +, -"
+  operation = gets.chomp
+  operationFunction
+end
 
+def operationFunction
+  if operation == "+"
+    sum = first_number + second_number
+    puts "The answer is #{sum}"
+  elsif operation == "-"
+    sum = first_number - second_number
+    puts "The answer is #{sum}"
+  elsif operation == "/"
+    sum = first_number/second_number
+    puts "The answer is #{sum}"
+  elsif operation == "*"
+    sum = first_number * second_number
+    puts "The answer is #{sum}"
   end
 
-#bmi 
-elsif users_response == "bmi"
+end
+
+def bmi
   puts "This is the BMI calculator"
   puts "Which system do you want to use? imperial or metric?"
   measure_system = gets.chomp
@@ -70,8 +72,19 @@ elsif users_response == "bmi"
     height_squared = inches_to_metres * inches_to_metres
     bmi_result = pounds_to_kilograms / height_squared
     puts "Your BMI result is #{bmi_result}"
-
   end
 
+end
+
+
+if users_response == "basic"
+
+basic
+
+elsif users_response == "advanced"
+  advanced
+#bmi
+elsif users_response == "bmi"
+  bmi
 
 end
