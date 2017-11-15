@@ -1,4 +1,4 @@
-operation = 0;
+
 
 puts 'Which calculator would you like to use? Basic, advanced, bmi?'
 users_response = gets.chomp
@@ -25,15 +25,15 @@ end
 def basic
   puts "You have chose the basic calculator"
   puts "Please enter the first number"
-  first_number = gets.chomp.to_i
+  first_number = gets.chomp.to_f
   puts "Please enter the second number"
-  second_number = gets.chomp.to_i
+  second_number = gets.chomp.to_f
   puts "Please choose one of the following operations: *, /, +, -"
   operation = gets.chomp
-  operationFunction
+  operationFunction(first_number,second_number, operation)
 end
 
-def operationFunction
+def operationFunction(first_number,second_number, operation)
   if operation == "+"
     sum = first_number + second_number
     puts "The answer is #{sum}"
@@ -47,6 +47,7 @@ def operationFunction
     sum = first_number * second_number
     puts "The answer is #{sum}"
   end
+
 
 end
 
